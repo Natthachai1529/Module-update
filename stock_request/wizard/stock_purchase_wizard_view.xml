@@ -11,18 +11,16 @@
                      <separator
                              string="Stock Purchase:"/>
                      <newline/>
-                    <notebook> 
-                        <group>
-                            <field name="line_ids" nolabel="1" colspan="2">
-                                <tree string="Details" create="false" editable="bottom">
+                     <group>
+                         <field name="line_ids" nolabel="1" colspan="2">
+                              <tree string="Details" create="false" editable="bottom">
                                   <field name="product_id" readonly="1"/>
                                   <field name="product_qty" readonly="1"/>
                                   <field name="qty_available"/>
                                   <field name="purchase_qty"/>
-                                </tree>
-                            </field>
-                        </group>
-                    <notebook>
+                              </tree>
+                         </field>
+                     </group>
                      <newline/>
                     <footer>
                         <!--button name="button_confirm"
