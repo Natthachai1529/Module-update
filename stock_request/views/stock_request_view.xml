@@ -137,7 +137,7 @@
                         <page string="Products">
                             <field name="line_ids" readonly="is_editable == False">
 <!--                                attrs="{'readonly': [('is_editable','=', False)]}"-->
-                                 <tree editable="bottom" limit="100">
+                                 <list editable="bottom" limit="100">
                                     <field name="sequence" widget="handle"/>
                                     <field name="line_no" string="No." readonly="1"/>
                                     <field name="product_id" required="1" options="{'no_create':True, 'no_create_edit':True, 'no_open': True}"/>
@@ -149,7 +149,7 @@
                                     <field name="qty_available"/>
                                     <!--field name="analytic_account_id" options="{'no_create':True, 'no_create_edit':True, 'no_open': True}"/-->
                                     <field name="is_editable" invisible="1"/>
-                                </tree>
+                                </list>
                                 <form>
                                     <group>
                                         <field name="product_id"/>
@@ -173,11 +173,11 @@
                         </page>
                         <page string="Remind">
                             <field name="remine_ids">
-                                <tree editable="bottom">
+                                <list editable="bottom">
                                     <field name="desc"/>
                                     <field name="date_remine"/>
                                     <field name="amount"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                     </notebook>
@@ -191,10 +191,10 @@
     </record>
 
     <record model="ir.ui.view" id="view_stock_request_tree">
-        <field name="name">stock.request.tree</field>
+        <field name="name">stock.request.list</field>
         <field name="model">stock.request</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="stock_type_id"/>
                 <field name="date_start"/>
@@ -204,7 +204,7 @@
                 <!--field name="purchase_ids"/-->
                 <field name="origin" invisible="1"/>
                 <field name="delivered_status"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -212,7 +212,7 @@
         <field name="name">Stock Requests</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">stock.request</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
                 Click to start a new stock request.

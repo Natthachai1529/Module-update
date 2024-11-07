@@ -13,12 +13,12 @@
                      <newline/>
                      <group>
                          <field name="line_ids" nolabel="1" colspan="2">
-                              <tree string="Details" create="false" editable="bottom">
+                              <list string="Details" create="false" editable="bottom">
                                   <field name="product_id" readonly="1"/>
                                   <field name="product_qty" readonly="1"/>
                                   <field name="qty_available"/>
                                   <field name="stock_qty"/>
-                              </tree>
+                              </list>
                          </field>
                      </group>
                      <newline/>
