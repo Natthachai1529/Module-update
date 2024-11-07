@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_stock_request_user,bst.stock.request.user,stock_request.model_stock_request,base.group_user,1,1,1,0
+access_stock_request_type_user,bst.stock.request.type.user,stock_request.model_stock_request_type,base.group_user,1,1,1,1
+access_stock_request_type_approver,bst.stock.request.type.approver,stock_request.model_stock_request_type_approver,base.group_user,1,1,1,1
+access_stock_request_line_user,bst.stock.request.line.user,stock_request.model_stock_request_line,base.group_user,1,1,1,1
+access_stock_request_remine_user,bst.stock.request.remine.user,stock_request.model_stock_request_remine,base.group_user,1,1,1,0
+access_cancel_stock_request,bst.cancel.stock.request.user,stock_request.model_cancel_stock_request,base.group_user,1,1,1,1
+access_stock_request_type_account,bst.stock.request.type.account,stock_request.model_stock_request_type_account,base.group_user,1,1,1,1

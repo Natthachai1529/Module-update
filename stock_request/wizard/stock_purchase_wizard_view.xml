@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_stock_purchase_wizard_view" model="ir.ui.view">
+            <field name="name">Stock Purchase Wizard View</field>
+            <field name="model">stock.purchase.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                 <form string="Create Call for Bids">
+                     <separator
+                             string="Stock Purchase:"/>
+                     <newline/>
+                     <group>
+                         <field name="line_ids" nolabel="1" colspan="2">
+                              <tree string="Details" create="false" editable="bottom">
+                                  <field name="product_id" readonly="1"/>
+                                  <field name="product_qty" readonly="1"/>
+                                  <field name="qty_available"/>
+                                  <field name="purchase_qty"/>
+                              </tree>
+                         </field>
+                     </group>
+                     <newline/>
+                    <footer>
+                        <!--button name="button_confirm"
+                                string="Confirm" type="object"
+                                class="oe_highlight"/-->
+                        <button special="cancel" string="Cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_stock_purchase_wizard"
+                model="ir.actions.act_window">
+            <field name="name">Stock Purchase Wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">stock.purchase.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id"
+                   ref="view_stock_purchase_wizard_view"/>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

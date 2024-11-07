@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!--record id="view_stock_request_configuration" model="ir.ui.view">
+            <field name="name">stock.request.config.view</field>
+            <field name="model">stock.request.config.settings</field>
+            <field name="arch" type="xml">
+                <form string="Configure Stock Request" class="oe_form_configuration">
+                    <header>
+                        <button string="Apply" type="object" name="execute" class="oe_highlight"/>
+                        <button string="Cancel" type="object" name="cancel" class="oe_link" special="cancel"/>
+                    </header>
+                    <group string="Picking Type Setting">
+                        <group>
+                            <field name="company_id" invisible="1"/>
+                            <field name="asset_picking_type_id"/>
+                            <field name="project_picking_type_id"/>
+                            <field name="service_picking_type_id"/>
+                            <field name="back_office_picking_type_id"/>
+                            <field name="transfer_spare_picking_type_id"/>
+                            <field name="production_picking_type_id"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record-->
+
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.sr</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="10"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <div class="app_settings_block" data-string="Stock Request" string="Stock Request" data-key="stock_request" >
+                    <h2>Set Picking</h2>
+                    <div class="row mt16 o_settings_container" name="sr_setting_container">
+                        <div class="col-12 col-lg-6 o_setting_box" id="sr_picking_setting">
+                            <div class="o_setting_right_pane">
+                                <div class="text-muted">
+                                    Set Picking of Stock Request
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <label for="production_picking_type_id" class="col-lg-3 o_light_label"/>
+                                        <field name="production_picking_type_id" required="1"/>
+                                    </div>
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <label for="project_picking_type_id" class="col-lg-3 o_light_label"/>
+                                        <field name="project_picking_type_id" required="1" />
+                                    </div>
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <label for="service_picking_type_id" class="col-lg-3 o_light_label"/>
+                                        <field name="service_picking_type_id" required="1" />
+                                    </div>
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <label for="back_office_picking_type_id" class="col-lg-3 o_light_label"/>
+                                        <field name="back_office_picking_type_id" required="1" />
+                                    </div>
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <label for="transfer_spare_picking_type_id" class="col-lg-3 o_light_label"/>
+                                        <field name="transfer_spare_picking_type_id" required="1" />
+                                    </div>
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <label for="production_picking_type_id" class="col-lg-3 o_light_label"/>
+                                        <field name="production_picking_type_id" required="1" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+        <record id="action_stock_request_config" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_id" ref="res_config_settings_view_form"/>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'stock_request', 'bin_size': False}</field>
+        </record>
+
+        <menuitem id="menu_main_config"
+            parent="main_stock_request"
+            name="Configuration"
+            groups="base.group_no_one"
+            sequence="20"/>
+
+        <menuitem id="menu_stock_request_config"
+            parent="menu_main_config"
+            name="Setings"
+            action="action_stock_request_config"
+            sequence="20"/>
+    </data>
+</odoo>

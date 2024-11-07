@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+       <record id="stock_request_asset_notify_email" model="mail.template">
+            <field name="name">Mail Notification: Stock Request Asset</field>
+            <field name="model_id" ref="stock_request.model_stock_request"/>
+            <field name="email_from"><![CDATA["${object.company_id.name|safe}" <${(object.company_id.email or user.email)|safe}>]]></field>
+            <field name="partner_to">${object.get_partner_list()}</field>
+            <field name="subject">Stock Request Asset - ${object.name}</field>
+            <field name="body_html"><![CDATA[
+<div style="padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777">
+    <p>Dear User,</p></br>
+    <p>Stock Request ${object.name} Create, (Type: Asset).</p>
+    <p>Purchase Order: ${object.get_purchase_name()}.</p>
+    <p>Creation date: ${object.return_date_start_format()}.</p>
+    <p>Request By: ${object.requested_by.name}.</p>
+    <p>Please Check this Request.</p>
+    <div style="text-align: center; margin-top: 16px;">
+        <a href="/mail/view?model=stock.request&amp;res_id=${object.id}" style="padding: 5px 10px; font-size: 12px; line-height: 18px; color: #FFFFFF; border-color:#875A7B; text-decoration: none; display: inline-block; margin-bottom: 0px; font-weight: 400; text-align: center; vertical-align: middle; cursor: pointer; white-space: nowrap; background-image: none; background-color: #875A7B; border: 1px solid #875A7B; border-radius:3px">View Stock Request</a>
+    </div>
+    <p>If you do not expect this, you can safely ignore this email.</p>
+    <p>Best regards,</p>
+</div>   
+<div style="padding:0px;width:600px;margin:auto; margin-top: 10px; background: #fff repeat top /100%;color:#777777">
+    <p style="font-size: 11px; margin-top: 10px;">
+        <strong>Sent by ${user.company_id.name} using <a href="www.odoo.com" style="text-decoration:none; color: #875A7B;">Odoo</a></strong>
+    </p> 
+</div>]]>
+            </field>
+            <field name="user_signature" eval="False"/>
+        </record>
+
+       <record id="stock_request_back_office_notify_email" model="mail.template">
+            <field name="name">Mail Notification: Stock Request Back Office</field>
+            <field name="model_id" ref="stock_request.model_stock_request"/>
+            <field name="email_from"><![CDATA["${object.company_id.name|safe}" <${(object.company_id.email or user.email)|safe}>]]></field>
+            <field name="partner_to">${object.get_partner_list()}</field>
+            <field name="subject">Stock Request Back Office - ${object.name}</field>
+            <field name="body_html"><![CDATA[
+<div style="padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777">
+    <p>Dear User,</p></br>
+    <p>Stock Request ${object.name} Create, (Type: Back Office).</p>
+    <p>Purchase Order: ${object.get_purchase_name()}.</p>
+    <p>Creation date: ${object.return_date_start_format()}.</p>
+    <p>Request By: ${object.requested_by.name}.</p>
+    <p>Please Check this Request.</p>
+    <div style="text-align: center; margin-top: 16px;">
+        <a href="/mail/view?model=stock.request&amp;res_id=${object.id}" style="padding: 5px 10px; font-size: 12px; line-height: 18px; color: #FFFFFF; border-color:#875A7B; text-decoration: none; display: inline-block; margin-bottom: 0px; font-weight: 400; text-align: center; vertical-align: middle; cursor: pointer; white-space: nowrap; background-image: none; background-color: #875A7B; border: 1px solid #875A7B; border-radius:3px">View Stock Request</a>
+    </div>
+    <p>If you do not expect this, you can safely ignore this email.</p>
+    <p>Best regards,</p>
+</div>   
+<div style="padding:0px;width:600px;margin:auto; margin-top: 10px; background: #fff repeat top /100%;color:#777777">
+    <p style="font-size: 11px; margin-top: 10px;">
+        <strong>Sent by ${user.company_id.name} using <a href="www.odoo.com" style="text-decoration:none; color: #875A7B;">Odoo</a></strong>
+    </p> 
+</div>]]>
+            </field>
+            <field name="user_signature" eval="False"/>
+        </record>
+
+        <record id="stock_request_project_notify_email" model="mail.template">
+            <field name="name">Mail Notification: Stock Request Project</field>
+            <field name="model_id" ref="stock_request.model_stock_request"/>
+            <field name="email_from"><![CDATA["${object.company_id.name|safe}" <${(object.company_id.email or user.email)|safe}>]]></field>
+            <field name="partner_to">${object.get_partner_list()}</field>
+            <field name="subject">Stock Request Project - ${object.name}</field>
+            <field name="body_html"><![CDATA[
+<div style="padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777">
+    <p>Dear User,</p></br>
+    <p>Stock Request ${object.name} Create, (Type: Project).</p>
+    <p>Purchase Order: ${object.get_purchase_name()}.</p>
+    <p>Creation date: ${object.return_date_start_format()}.</p>
+    <p>Request By: ${object.requested_by.name}.</p>
+    <p>Please Check this Request.</p>
+    <div style="text-align: center; margin-top: 16px;">
+        <a href="/mail/view?model=stock.request&amp;res_id=${object.id}" style="padding: 5px 10px; font-size: 12px; line-height: 18px; color: #FFFFFF; border-color:#875A7B; text-decoration: none; display: inline-block; margin-bottom: 0px; font-weight: 400; text-align: center; vertical-align: middle; cursor: pointer; white-space: nowrap; background-image: none; background-color: #875A7B; border: 1px solid #875A7B; border-radius:3px">View Stock Request</a>
+    </div>
+    <p>If you do not expect this, you can safely ignore this email.</p>
+    <p>Best regards,</p>
+</div>   
+<div style="padding:0px;width:600px;margin:auto; margin-top: 10px; background: #fff repeat top /100%;color:#777777">
+    <p style="font-size: 11px; margin-top: 10px;">
+        <strong>Sent by ${user.company_id.name} using <a href="www.odoo.com" style="text-decoration:none; color: #875A7B;">Odoo</a></strong>
+    </p> 
+</div>]]>
+            </field>
+            <field name="user_signature" eval="False"/>
+        </record>
+
+        <record id="stock_request_service_notify_email" model="mail.template">
+            <field name="name">Mail Notification: Stock Request Service</field>
+            <field name="model_id" ref="stock_request.model_stock_request"/>
+            <field name="email_from"><![CDATA["${object.company_id.name|safe}" <${(object.company_id.email or user.email)|safe}>]]></field>
+            <field name="partner_to">${object.get_partner_list()}</field>
+            <field name="subject">Stock Request Service - ${object.name}</field>
+            <field name="body_html"><![CDATA[
+<div style="padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777">
+    <p>Dear User,</p></br>
+    <p>Stock Request ${object.name} Create, (Type: Service).</p>
+    <p>Purchase Order: ${object.get_purchase_name()}.</p>
+    <p>Creation date: ${object.return_date_start_format()}.</p>
+    <p>Request By: ${object.requested_by.name}.</p>
+    <p>Please Check this Request.</p>
+    <div style="text-align: center; margin-top: 16px;">
+        <a href="/mail/view?model=stock.request&amp;res_id=${object.id}" style="padding: 5px 10px; font-size: 12px; line-height: 18px; color: #FFFFFF; border-color:#875A7B; text-decoration: none; display: inline-block; margin-bottom: 0px; font-weight: 400; text-align: center; vertical-align: middle; cursor: pointer; white-space: nowrap; background-image: none; background-color: #875A7B; border: 1px solid #875A7B; border-radius:3px">View Stock Request</a>
+    </div>
+    <p>If you do not expect this, you can safely ignore this email.</p>
+    <p>Best regards,</p>
+</div>   
+<div style="padding:0px;width:600px;margin:auto; margin-top: 10px; background: #fff repeat top /100%;color:#777777">
+    <p style="font-size: 11px; margin-top: 10px;">
+        <strong>Sent by ${user.company_id.name} using <a href="www.odoo.com" style="text-decoration:none; color: #875A7B;">Odoo</a></strong>
+    </p> 
+</div>]]>
+            </field>
+            <field name="user_signature" eval="False"/>
+        </record>
+
+       <record id="stock_request_transfer_spare_notify_email" model="mail.template">
+            <field name="name">Mail Notification: Stock Request Transfer Spare</field>
+            <field name="model_id" ref="stock_request.model_stock_request"/>
+            <field name="email_from"><![CDATA["${object.company_id.name|safe}" <${(object.company_id.email or user.email)|safe}>]]></field>
+            <field name="partner_to">${object.get_partner_list()}</field>
+            <field name="subject">Stock Request Transfer Spare - ${object.name}</field>
+            <field name="body_html"><![CDATA[
+<div style="padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777">
+    <p>Dear User,</p></br>
+    <p>Stock Request ${object.name} Create, (Type: Request Transfer Spare).</p>
+    <p>Purchase Order: ${object.get_purchase_name()}.</p>
+    <p>Creation date: ${object.return_date_start_format()}.</p>
+    <p>Request By: ${object.requested_by.name}.</p>
+    <p>Please Check this Request.</p>
+    <div style="text-align: center; margin-top: 16px;">
+        <a href="/mail/view?model=stock.request&amp;res_id=${object.id}" style="padding: 5px 10px; font-size: 12px; line-height: 18px; color: #FFFFFF; border-color:#875A7B; text-decoration: none; display: inline-block; margin-bottom: 0px; font-weight: 400; text-align: center; vertical-align: middle; cursor: pointer; white-space: nowrap; background-image: none; background-color: #875A7B; border: 1px solid #875A7B; border-radius:3px">View Stock Request</a>
+    </div>
+    <p>If you do not expect this, you can safely ignore this email.</p>
+    <p>Best regards,</p>
+</div>   
+<div style="padding:0px;width:600px;margin:auto; margin-top: 10px; background: #fff repeat top /100%;color:#777777">
+    <p style="font-size: 11px; margin-top: 10px;">
+        <strong>Sent by ${user.company_id.name} using <a href="www.odoo.com" style="text-decoration:none; color: #875A7B;">Odoo</a></strong>
+    </p> 
+</div>]]>
+            </field>
+            <field name="user_signature" eval="False"/>
+        </record>
+
+       <record id="stock_request_approve_notify_email" model="mail.template">
+            <field name="name">Mail Notification: Stock Request Approve</field>
+            <field name="model_id" ref="stock_request.model_stock_request"/>
+            <field name="email_from"><![CDATA["${object.company_id.name|safe}" <${(object.company_id.email or user.email)|safe}>]]></field>
+            <field name="partner_to">${object.get_partner_list_stock_picking()}</field>
+            <field name="subject">Stock Request Approve - ${object.name}</field>
+            <field name="body_html"><![CDATA[
+<div style="padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777">
+    <p>Dear User,</p></br>
+    <p>Stock Request ${object.name} was Approve.</p>
+    <p>Stock Request Type: ${object.stock_type}.</p>
+    <p>Please Check Delivery Number: ${object.picking_id.name}.</p>
+    <p>Schedule Date: ${object.return_date_schedule_format()}</p>
+    <p>Delivery Note: ${object.delivery_note}</p>
+    <div style="text-align: center; margin-top: 16px;">
+        <a href="/mail/view?model=stock.picking&amp;res_id=${object.picking_id.id}" style="padding: 5px 10px; font-size: 12px; line-height: 18px; color: #FFFFFF; border-color:#875A7B; text-decoration: none; display: inline-block; margin-bottom: 0px; font-weight: 400; text-align: center; vertical-align: middle; cursor: pointer; white-space: nowrap; background-image: none; background-color: #875A7B; border: 1px solid #875A7B; border-radius:3px">View Stock Picking</a>
+    </div>
+    <p>If you do not expect this, you can safely ignore this email.</p>
+    <p>Best regards,</p>
+</div>   
+<div style="padding:0px;width:600px;margin:auto; margin-top: 10px; background: #fff repeat top /100%;color:#777777">
+    <p style="font-size: 11px; margin-top: 10px;">
+        <strong>Sent by ${user.company_id.name} using <a href="www.odoo.com" style="text-decoration:none; color: #875A7B;">Odoo</a></strong>
+    </p> 
+</div>]]>
+            </field>
+            <field name="user_signature" eval="False"/>
+        </record>
+
+       <record id="stock_request_reject_notify_email" model="mail.template">
+            <field name="name">Mail Notification: Stock Request Reject</field>
+            <field name="model_id" ref="stock_request.model_stock_request"/>
+            <field name="email_from"><![CDATA["${object.company_id.name|safe}" <${(object.company_id.email or user.email)|safe}>]]></field>
+            <field name="partner_to">${object.requested_by.partner_id.id}</field>
+            <field name="subject">Stock Request Reject - ${object.name}</field>
+            <field name="body_html"><![CDATA[
+<div style="padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777">
+    <p>Dear User,  </p></br>
+    <p>Stock Request ${object.name} was Rejected.</p>
+    <p>Type: ${object.stock_type}</p>
+    <p>Reject by ${object.env.user.partner_id.name}.</p>
+    <p>Reason Text: ${object.reject_reason}.</p>
+    <div style="text-align: center; margin-top: 16px;">
+        <a href="/mail/view?model=stock.request&amp;res_id=${object.id}" style="padding: 5px 10px; font-size: 12px; line-height: 18px; color: #FFFFFF; border-color:#875A7B; text-decoration: none; display: inline-block; margin-bottom: 0px; font-weight: 400; text-align: center; vertical-align: middle; cursor: pointer; white-space: nowrap; background-image: none; background-color: #875A7B; border: 1px solid #875A7B; border-radius:3px">View Stock Request</a>
+    </div>
+    <p>If you do not expect this, you can safely ignore this email.</p>
+    <p>Best regards,</p>
+</div>   
+<div style="padding:0px;width:600px;margin:auto; margin-top: 10px; background: #fff repeat top /100%;color:#777777">
+    <p style="font-size: 11px; margin-top: 10px;">
+        <strong>Sent by ${user.company_id.name} using <a href="www.odoo.com" style="text-decoration:none; color: #875A7B;">Odoo</a></strong>
+    </p> 
+</div>]]>
+            </field>
+            <field name="user_signature" eval="False"/>
+        </record> 
+
+     </data>
+</odoo>
+
